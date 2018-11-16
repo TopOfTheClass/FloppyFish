@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 HELLO EVERYONE!
+=======
+HELLOWRLD
+>>>>>>> cf0339100c6dfd9508e5e0d3d76cf0c68ac1d3e6
