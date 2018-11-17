@@ -1,9 +1,9 @@
-
+// Obstacle class made by Colin Jackson
 public class Obstacle {
-Obstacle(){
-	System.out.println("Hello");
-}
-void move() {
-	System.out.println();
-}
+	Obstacle() {
+
+	}
+
+	void move() {
+	}
 }
