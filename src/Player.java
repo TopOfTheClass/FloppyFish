@@ -5,6 +5,6 @@ public class Player {
 	EZImage picture;
 
 	Player() {
-		picture = EZ.addImage("Fish.png", 200, 800 / 2);
+		picture = EZ.addImage("Fish.png", 250, 800 / 2);
 	}
 }
