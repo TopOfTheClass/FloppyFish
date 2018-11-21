@@ -13,6 +13,7 @@ public class Main {
 		final int MOVEMENT = -2;
 		final int SCORE = 0;
 		int counter = 0;
+		boolean needNew = false;
 		
 		ArrayList<Obstacle> obs = new ArrayList<Obstacle> ();
 		obs.add(new Obstacle(1000, 600));
@@ -23,14 +24,28 @@ public class Main {
 			counter++;
 			System.out.println(counter);
 			
-			if(counter % 1111 == 0)
-				obs.add(new Obstacle(1000, 600));
+
+			if(counter % 1500 == 0) {
+				needNew = true;
+			}
+
+			if(needNew) {
+				for(int i = 0; i < obs.size(); i ++) {
+					if(obs.get(i).posX >= obs.size() * (1000 / (obs.size() + 1)) && 
+							obs.get(i).posX <= obs.size() * ((1000 / (obs.size() + 1) + 2))) {
+						obs.add(new Obstacle(1000, 600));
+						needNew = false;
+					}
+				}
+			}
+
 			
 			for(int i = 0; i < obs.size(); i++) {
 				if(obs.get(i).posX > 0) {
 					obs.get(i).move(MOVEMENT);
 				} else {
-					obs.get(i).adjust(1000);
+					obs.remove(i);
+					needNew = true;
 				}
 			}
 			background.move(MOVEMENT);
