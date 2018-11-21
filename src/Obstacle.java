@@ -21,11 +21,18 @@ public class Obstacle {
 	
 	Obstacle(int x, int y) { // when we know where we want the image to be call this contructor
 		posX = x;
-		posY = y / 2;
+		posY = rand.nextInt(225) + 175;
 		botY = posY + BOTTOM;
 		topY = posY + TOP;
 		top = EZ.addImage("TopWeed.png", posX, posY + TOP);
-		bottom = EZ.addImage("BottomWeed.png", posX, posY + BOTTOM);	
+		bottom = EZ.addImage("BottomWeed.png", posX, posY + BOTTOM);
+		EZ.refreshScreen();
+	}
+	
+	void close() {
+		EZ.removeEZElement(top);
+		EZ.removeEZElement(bottom);
+		EZ.refreshScreen();
 	}
 	
 	
@@ -46,5 +53,6 @@ public class Obstacle {
 		 System.out.print(posY + ' ');
 		 move(0);//calls move function to translate to new location.
 	 }
+	 
 	 
 }
