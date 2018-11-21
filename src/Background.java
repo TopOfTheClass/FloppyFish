@@ -10,9 +10,9 @@ public class Background {
 		picture2 = EZ.addImage("Background2.jpg", (x / 2) + x, y / 2);
 	}
 
-	void move() {
-		picture1.moveForward(-2);
-		picture2.moveForward(-2);
+	void move(int z) {
+		picture1.moveForward(z);
+		picture2.moveForward(z);
 		if (picture1.getXCenter() < -y) {
 			picture1.moveForward(x*2);
 		} else if (picture2.getXCenter() < -y) {
