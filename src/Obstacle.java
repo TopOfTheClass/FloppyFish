@@ -2,10 +2,9 @@ import java.util.Random;
 
 // Obstacle class made by Colin Jackson
 public class Obstacle {
-	private static int O_NUMBER = 2;//the number of seaweed pictures needed to create an obstacle
-	private static int TOP = -100; // since both pictures will use the same Y coordinate this will
+	private static int TOP = -300; // since both pictures will use the same Y coordinate this will
 								   // be used to adjust the images away from eachother.
-	private static int BOTTOM = 100;// " "
+	private static int BOTTOM = 300;// " "
 	private Random rand;
 	EZImage top; //The obstacle is made of a top and bottom image.
 	EZImage bottom;
@@ -21,11 +20,11 @@ public class Obstacle {
 	
 	Obstacle(int x, int y) { // when we know where we want the image to be call this contructor
 		posX = x;
-		posY = y;
-		botY = posY + botY;
-		topY = posY + topY;
+		posY = y / 2;
+		botY = posY + BOTTOM;
+		topY = posY + TOP;
 		top = EZ.addImage("TopWeed.png", posX, posY + TOP);
-		bottom = EZ.addImage("BottomeWeed.png", posX, posY + BOTTOM);	
+		bottom = EZ.addImage("BottomWeed.png", posX, posY + BOTTOM);	
 	}
 	
 	
@@ -36,7 +35,7 @@ public class Obstacle {
 	}
 	
 	 public void adjust(int X_MAX) {
-		 posY = rand.nextInt(600) + 200;
+		 posY = rand.nextInt(500) + 100;
 		 botY = posY + botY;
 		 topY = posY + topY;
 		 posX = X_MAX;
