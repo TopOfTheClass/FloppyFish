@@ -21,12 +21,17 @@ public class Main {
 			
 		while (true) {
 			counter++;
+			System.out.println(counter);
 			
-			if(counter > 2000)
+			if(counter % 1111 == 0)
 				obs.add(new Obstacle(1000, 600));
 			
 			for(int i = 0; i < obs.size(); i++) {
-				obs.get(i).move(MOVEMENT);
+				if(obs.get(i).posX > 0) {
+					obs.get(i).move(MOVEMENT);
+				} else {
+					obs.get(i).adjust(1000);
+				}
 			}
 			background.move(MOVEMENT);
 			fish.move();

@@ -2,10 +2,10 @@ import java.util.Random;
 
 // Obstacle class made by Colin Jackson
 public class Obstacle {
-	private static int TOP = -300; // since both pictures will use the same Y coordinate this will
+	private static int TOP = -225; // since both pictures will use the same Y coordinate this will
 								   // be used to adjust the images away from eachother.
-	private static int BOTTOM = 300;// " "
-	private Random rand;
+	private static int BOTTOM = 225;// " "
+	private Random rand = new Random();
 	EZImage top; //The obstacle is made of a top and bottom image.
 	EZImage bottom;
 	int posX, posY, botY, topY;//Both images will share the same x coordinate but there posY will vary slightly
@@ -35,10 +35,13 @@ public class Obstacle {
 	}
 	
 	 public void adjust(int X_MAX) {
-		 posY = rand.nextInt(500) + 100;
-		 botY = posY + botY;
-		 topY = posY + topY;
+		 botY = 0;
+		 topY = 0;
+		 posY = rand.nextInt(125) + 200;
+		 botY = posY + BOTTOM;
+		 topY = posY + TOP;
 		 posX = X_MAX;
+		System.out.print(posY + ' ');
 		 move(0);//calls move function to translate to new location.
 	 }
 	 
