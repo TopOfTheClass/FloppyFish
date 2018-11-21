@@ -1,4 +1,4 @@
-
+// Main was worked on by all three students
 
 public class Main {
 
