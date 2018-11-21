@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 
 public class Main {
 
@@ -7,12 +7,26 @@ public class Main {
 		EZImage shark = EZ.addImage("Shark.png", -150, 350);
 		Background background = new Background();
 		Player fish = new Player();
-		Sprite me = new Sprite("squire_m.png", 100,100,32,48,10);
+		//Sprite me = new Sprite("squire_m.png", 100,100,32,48,10);
 		final int MOVEMENT = -2;
+		int counter = 0;
+		
+		ArrayList<Obstacle> obs = new ArrayList<Obstacle> ();
+		obs.add(new Obstacle(1000, 800));
+		
+		
 			
 		while (true) {
+			counter++;
+			
+			if(counter > 2000)
+				obs.add(new Obstacle(1000, 800));
+			
+			for(int i = 0; i < obs.size(); i++) {
+				obs.get(i).move(MOVEMENT);
+			}
 			background.move(MOVEMENT);
-			me.go();
+			fish.move();
 			shark.pullForwardOneLayer();
 			EZ.refreshScreen();
 		}
