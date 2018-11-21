@@ -11,16 +11,13 @@ public class Main {
 		Player fish = new Player();
 		//Sprite me = new Sprite("squire_m.png", 100,100,32,48,10);
 		final int MOVEMENT = -2;
-<<<<<<< HEAD
 		final int SCORE = 0;
-=======
 		int counter = 0;
 		
 		ArrayList<Obstacle> obs = new ArrayList<Obstacle> ();
 		obs.add(new Obstacle(1000, 600));
 		
 		
->>>>>>> 9b915125f81a1e24a8abe64cb5f564d7d1bfa0c8
 			
 		while (true) {
 			counter++;
