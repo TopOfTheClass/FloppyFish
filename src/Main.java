@@ -7,7 +7,7 @@ public class Main {
 		Background background = new Background();
 		Player fish = new Player();
 		Sprite me = new Sprite("squire_m.png", 100,100,32,48,10);
-	final int MOVEMENT = -2;
+		final int MOVEMENT = -2;
 			
 		while (true) {
 			background.move(MOVEMENT);
