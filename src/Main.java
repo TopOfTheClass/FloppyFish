@@ -8,12 +8,14 @@ public class Main {
 		Background background = new Background();
 		Player fish = new Player();
 		final int MOVEMENT = -2;
+		final int SCORE = 0;
 			
 		while (true) {
 			background.move(MOVEMENT);
 			fish.move();
 			shark.pullForwardOneLayer();
 			EZ.refreshScreen();
+			
 		}
 	}
 

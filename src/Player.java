@@ -9,7 +9,7 @@ public class Player {
 	EZImage picture;
 
 	Player() { //our constructor
-		x = 250; //set x to 250
+		x = 300; //set x to 300
 		y = 400; //set y to 400
 		picture = EZ.addImage("fish.png", x, y); //add image fish.png into picture at the given the x and y integers
 		}
