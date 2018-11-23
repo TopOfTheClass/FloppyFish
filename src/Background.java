@@ -14,9 +14,9 @@ public class Background {
 		picture1.moveForward(z);
 		picture2.moveForward(z);
 		if (picture1.getXCenter() < -y) {
-			picture1.moveForward(x*2);
+			picture1.moveForward(x * 2);
 		} else if (picture2.getXCenter() < -y) {
-			picture2.moveForward(x*2);
+			picture2.moveForward(x * 2);
 		}
 	}
 }
