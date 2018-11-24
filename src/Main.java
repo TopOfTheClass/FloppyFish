@@ -58,7 +58,7 @@ public class Main {
 					}
 				}
 			}
-			if ()
+			//if ()
 			background.move(MOVEMENT);
 			fish.move();
 			shark.pullForwardOneLayer();

@@ -6,6 +6,8 @@ import java.awt.event.KeyEvent;
 public class Player {
 	private int x;
 	private int y;
+	private boolean isPressed = false;
+	private int moveCount = 0;
 
 	EZImage picture;
 	EZSound sound;
@@ -20,9 +22,18 @@ public class Player {
 
 	void move() { // set up move method
 
-		if (EZInteraction.wasKeyPressed(KeyEvent.VK_SPACE)) { // if the w key is pressed down
+		if (EZInteraction.wasKeyReleased(KeyEvent.VK_SPACE) && isPressed == false) { // if the w key is pressed down
 			sound.play();
-			y = y - 75; // then decrement y by 50
+			isPressed = true;
+		} 
+		
+		if(isPressed && moveCount < 7) {
+			y -= 11;
+			moveCount++;
+		} else if(moveCount >= 7) {
+			isPressed = false;
+			moveCount = 0;
+			y+= 3;
 		} else {
 			y += 3;
 		}
