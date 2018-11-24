@@ -46,4 +46,12 @@ public class Player {
 		}
 		picture.translateTo(x, y); // translate picture to x and y coordinates
 	}
+	
+	int getX() {
+		return x;
+	}
+	
+	int getY() {
+		return y;
+	}
 }

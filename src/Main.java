@@ -13,11 +13,12 @@ public class Main {
 		int counter = 0;
 		boolean needNew = false;
 		boolean needRespawn = false;
+		boolean gameOver = false;
 
 		ArrayList<Obstacle> obs = new ArrayList<Obstacle>();
 		obs.add(new Obstacle(1000, 600));
 
-		while (true) {
+		do{
 			counter++;
 			System.out.println(counter);
 
@@ -58,13 +59,19 @@ public class Main {
 					}
 				}
 			}
-			//if ()
+			
+			for(int i = 0; i < obs.size(); i++) {
+				if(obs.get(i).bottom.isPointInElement(fish.picture.getXCenter(), fish.picture.getYCenter()) 
+						|| obs.get(i).top.isPointInElement(fish.picture.getXCenter(), fish.picture.getYCenter())) {
+					gameOver = true;
+				}
+			}
 			background.move(MOVEMENT);
 			fish.move();
 			shark.pullForwardOneLayer();
 			EZ.refreshScreen();
 
-		}
+		} while(!gameOver);
 	}
 
 }
