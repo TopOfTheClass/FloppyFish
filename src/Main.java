@@ -12,9 +12,7 @@ public class Main {
 		EZSound theme = EZ.addSound("Theme.wav");
 		EZSound ending = EZ.addSound("gameOver.wav");
 		Player fish = new Player();
-		
 		final int MOVEMENT = -2;
-		// int score = 0;
 		int counter = 0;
 		boolean needNew = false;
 		boolean needRespawn = false;
@@ -79,13 +77,18 @@ public class Main {
 			}
 			EZ.refreshScreen();
 
-		} while (!gameOver); {
-			// EZ.initialize(900,600);
-			EZText theEnd = EZ.addText(900/2, 600/2, "GAME OVER", Color.WHITE, 75);
-			theEnd.setFont("WaterFont.ttf");
-			EZ.setBackgroundColor(Color.BLACK);
-			theme.stop();
-			ending.play();
-		}
+		} while(!gameOver); 
+			
+		ending.play();
+		for(int i = 0; i < obs.size(); i++) 
+			obs.get(i).gameOver();
+		
+		fish.gameOver();
+		EZText theEnd = EZ.addText(900/2, 600/2, "GAME OVER", Color.WHITE, 75);		
+		theEnd.setFont("WaterFont.ttf");
+		EZ.setBackgroundColor(Color.BLACK);
+		theme.stop();
+			
 	}
+	
 }

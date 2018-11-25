@@ -50,8 +50,19 @@ public class Obstacle {
 		botY = posY + BOTTOM;
 		topY = posY + TOP;
 		posX = X_MAX;
-		System.out.print(posY + ' ');
 		move(0);// calls move function to translate to new location.
+	}
+	
+	public void gameOver() {
+		do {
+			topY += 5;
+			botY += 5;
+			top.rotateBy(10);
+			bottom.rotateBy(10);
+			top.translateTo(posX, topY);
+			bottom.translateTo(posX, botY);
+			EZ.refreshScreen();
+		}while(topY < 800 || botY < 800);
 	}
 
 }

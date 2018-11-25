@@ -47,11 +47,20 @@ public class Player {
 		picture.translateTo(x, y); // translate picture to x and y coordinates
 	}
 	
-	int getX() {
+	public void gameOver() {
+		do{
+			y += 5;
+			picture.rotateBy(10);
+			picture.translateTo(x, y);
+			EZ.refreshScreen();
+		} while(y < 800);
+	}
+	public int getX() {
 		return x;
 	}
 	
-	int getY() {
+	public int getY() {
 		return y;
 	}
+	
 }
