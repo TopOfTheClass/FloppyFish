@@ -1,5 +1,5 @@
 
-// Player class made by Brody Uehara
+// Player class made by Brody Uehara, used private variables
 
 import java.awt.event.KeyEvent;
 
@@ -14,7 +14,7 @@ public class Player {
 
 	Player() { // our constructor
 		x = 300; // set x to 300
-		y = 300; // set y to 400
+		y = 300; // set y to 300
 		picture = EZ.addImage("fish.png", x, y); // add image fish.png into picture at the given the x and y integers
 		sound = EZ.addSound("Drop.wav");
 	}

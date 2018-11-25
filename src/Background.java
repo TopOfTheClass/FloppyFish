@@ -1,4 +1,6 @@
-// class made by David Nguyen
+
+
+// class made by David Nguyen, used private variables
 public class Background {
 	private int x = 1600;
 	private int y = 800;
@@ -10,7 +12,7 @@ public class Background {
 		picture2 = EZ.addImage("Background2.jpg", (x / 2) + x, y / 2);
 	}
 
-	void move(int z) {
+	void move(double z) {
 		picture1.moveForward(z);
 		picture2.moveForward(z);
 		if (picture1.getXCenter() < -y) {

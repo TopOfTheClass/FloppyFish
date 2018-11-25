@@ -36,7 +36,7 @@ public class Obstacle {
 		EZ.refreshScreen();
 	}
 
-	public void move(int speed) {
+	public void move(double speed) {
 		posX += speed;
 		top.translateTo(posX, topY);
 		bottom.translateTo(posX, botY);

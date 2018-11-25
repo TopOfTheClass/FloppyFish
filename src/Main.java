@@ -1,15 +1,20 @@
+import java.awt.Color;
 import java.util.ArrayList;
 // Main was worked on by all three students
 
 public class Main {
 
 	public static void main(String[] args) {
+		
 		EZ.initialize(900, 600);
-		EZImage shark = EZ.addImage("Shark.png", -115, 300);
+		EZImage shark = EZ.addImage("Shark.png", -115, 275);
 		Background background = new Background();
+		EZSound theme = EZ.addSound("Theme.wav");
+		EZSound ending = EZ.addSound("gameOver.wav");
 		Player fish = new Player();
+		
 		final int MOVEMENT = -2;
-		final int SCORE = 0;
+		// int score = 0;
 		int counter = 0;
 		boolean needNew = false;
 		boolean needRespawn = false;
@@ -17,8 +22,11 @@ public class Main {
 
 		ArrayList<Obstacle> obs = new ArrayList<Obstacle>();
 		obs.add(new Obstacle(1000, 600));
-
-		do{
+		theme.play();
+		do {
+			background.move(MOVEMENT * 1.25);
+			fish.move();
+			shark.pullForwardOneLayer();
 			counter++;
 			System.out.println(counter);
 
@@ -48,7 +56,7 @@ public class Main {
 
 			for (int i = 0; i < obs.size(); i++) {
 				if (obs.get(i).posX > 0) {
-					obs.get(i).move(MOVEMENT);
+					obs.get(i).move(MOVEMENT * 1.25);
 				} else {
 					obs.get(i).close();
 					obs.remove(i);
@@ -59,19 +67,25 @@ public class Main {
 					}
 				}
 			}
-			
-			for(int i = 0; i < obs.size(); i++) {
-				if(obs.get(i).bottom.isPointInElement(fish.picture.getXCenter(), fish.picture.getYCenter()) 
+
+			for (int i = 0; i < obs.size(); i++) {
+				if (obs.get(i).bottom.isPointInElement(fish.picture.getXCenter(), fish.picture.getYCenter())
 						|| obs.get(i).top.isPointInElement(fish.picture.getXCenter(), fish.picture.getYCenter())) {
 					gameOver = true;
 				}
+				else if (fish.picture.getYCenter() <= 0 || fish.picture.getYCenter() >= 600) {
+					gameOver = true;
+				}
 			}
-			background.move(MOVEMENT);
-			fish.move();
-			shark.pullForwardOneLayer();
 			EZ.refreshScreen();
 
-		} while(!gameOver);
+		} while (!gameOver); {
+			// EZ.initialize(900,600);
+			EZText theEnd = EZ.addText(900/2, 600/2, "GAME OVER", Color.WHITE, 75);
+			theEnd.setFont("WaterFont.ttf");
+			EZ.setBackgroundColor(Color.BLACK);
+			theme.stop();
+			ending.play();
+		}
 	}
-
 }
