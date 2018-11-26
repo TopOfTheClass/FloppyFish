@@ -25,15 +25,17 @@ public class Main {
 		text3.setFont("FlappyBirdy.ttf"); 
 		text4.setFont("FlappyBirdy.ttf");
 		
-		while (true) { // while true
-			if (EZInteraction.wasKeyPressed(KeyEvent.VK_SPACE)) { // if the w key is pressed down
-				text1.hide(); // hide words 
-				text2.hide(); 
-				text3.hide(); 
-				text4.hide(); 
-				break; // break out of the loop
+		boolean wait = true;
+		
+		do{  // while true
+			if(EZInteraction.wasKeyPressed('w')) {
+				text1.hide();
+				text2.hide();
+				text3.hide();
+				text4.hide();
+				wait = false;
 			}
-		}
+		} while(wait);
 		
 		final int MOVEMENT = -2;
 		int counter = 0;

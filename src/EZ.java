@@ -425,11 +425,9 @@ public class EZ extends JPanel {
    * @param x center.
    * @param y center.
    * @param msg that will be displayed.
- * @param aquamarine 
- * @param i 
    * @return the text.
    */
-  public static EZText addText(int x, int y, String msg, javafx.scene.paint.Color aquamarine, int i) {
+  public static EZText addText(int x, int y, String msg) {
     return addText(x, y, msg, Color.BLACK, 10);
   }
 
