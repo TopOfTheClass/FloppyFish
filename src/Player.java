@@ -53,7 +53,7 @@ public class Player {
 			picture.rotateBy(10);
 			picture.translateTo(x, y);
 			EZ.refreshScreen();
-		} while(y < 800);
+		} while(y < 801);
 	}
 	public int getX() {
 		return x;
