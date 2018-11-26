@@ -1,4 +1,3 @@
-
 // Player class made by Brody Uehara, used private variables
 
 import java.awt.event.KeyEvent;
@@ -27,14 +26,14 @@ public class Player {
 			isPressed = true;
 		} 
 		
-		if(isPressed && moveCount < 7) {
-			y -= 11;
-			moveCount++;
-		} else if(moveCount >= 7) {
-			isPressed = false;
-			moveCount = 0;
-			y+= 3;
-		} else {
+		if(isPressed && moveCount < 7) { //if is pressed is true and move count is less than 7
+			y -= 11; //move up 11 units
+			moveCount++; //increase move count
+		} else if(moveCount >= 7) { //if movecount is greater than 7
+			isPressed = false; //key pressed is false
+			moveCount = 0; //make movecount 0
+			y+= 3; //move down 3
+		} else { //or else fall by 3
 			y += 3;
 		}
 
@@ -47,19 +46,19 @@ public class Player {
 		picture.translateTo(x, y); // translate picture to x and y coordinates
 	}
 	
-	public void gameOver() {
-		do{
+	public void gameOver() { //created gameover stuff
+		do{ //rotate objects and make them fall
 			y += 5;
 			picture.rotateBy(10);
 			picture.translateTo(x, y);
 			EZ.refreshScreen();
 		} while(y < 800);
 	}
-	public int getX() {
+	public int getX() { //because x is a private variable 
 		return x;
 	}
 	
-	public int getY() {
+	public int getY() { //because y is a private variable
 		return y;
 	}
 	

@@ -30,13 +30,13 @@ public class Obstacle {
 		EZ.refreshScreen();
 	}
 
-	void close() {
+	void close() { //deletes the images from the screen before the object is deleted
 		EZ.removeEZElement(top);
 		EZ.removeEZElement(bottom);
 		EZ.refreshScreen();
 	}
 
-	public void move(double speed) {
+	public void move(double speed) { //moves the obstacles in order
 		posX += speed;
 		top.translateTo(posX, topY);
 		bottom.translateTo(posX, botY);
@@ -53,7 +53,7 @@ public class Obstacle {
 		move(0);// calls move function to translate to new location.
 	}
 	
-	public void gameOver() {
+	public void gameOver() { //when the game is over the objects spin and fall of the screen
 		do {
 			topY += 5;
 			botY += 5;

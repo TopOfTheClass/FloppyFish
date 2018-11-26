@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 // Main was worked on by all three students
 
@@ -12,8 +13,31 @@ public class Main {
 		EZSound theme = EZ.addSound("Theme.wav");
 		EZSound ending = EZ.addSound("gameOver.wav");
 		Player fish = new Player();
+		//intro screen
+		Color c = new Color(255,255,0);
+		EZText text1 = EZ.addText(450, 400, "PRESS SPACE TO START", c, 80);
+		EZText text2 = EZ.addText(450, 450, "DIRECTIONS", c, 50);
+		EZText text3 = EZ.addText(450, 480, "AVOID THE SEAWEED BY PRESSING SPACE", c, 50);
+		EZText text4 = EZ.addText(450, 200, "FLOPPY FISH", c, 170);
+		
+		text1.setFont("FlappyBirdy.ttf"); // set font 
+		text2.setFont("FlappyBirdy.ttf"); 
+		text3.setFont("FlappyBirdy.ttf"); 
+		text4.setFont("FlappyBirdy.ttf");
+		
+		while (true) { // while true
+			if (EZInteraction.wasKeyPressed(KeyEvent.VK_SPACE)) { // if the w key is pressed down
+				text1.hide(); // hide words 
+				text2.hide(); 
+				text3.hide(); 
+				text4.hide(); 
+				break; // break out of the loop
+			}
+		}
+		
 		final int MOVEMENT = -2;
 		int counter = 0;
+		int score = 0;
 		boolean needNew = false;
 		boolean needRespawn = false;
 		boolean gameOver = false;
@@ -22,6 +46,7 @@ public class Main {
 		obs.add(new Obstacle(1000, 600));
 		theme.play();
 		do {
+			score++;
 			background.move(MOVEMENT * 1.25);
 			fish.move();
 			shark.pullForwardOneLayer();
@@ -78,16 +103,20 @@ public class Main {
 			EZ.refreshScreen();
 
 		} while(!gameOver); 
-			
+		theme.stop();	
 		ending.play();
+		EZText theEnd = EZ.addText(900/2, 600/2, "GAME OVER", c, 175);
+		EZText endScore = EZ.addText(450, 400, "SCORE: " + score, c, 50);		
+		theEnd.setFont("FlappyBirdy.ttf");
+		endScore.setFont("Flappy-Bird.ttf");
 		for(int i = 0; i < obs.size(); i++) 
 			obs.get(i).gameOver();
 		
 		fish.gameOver();
-		EZText theEnd = EZ.addText(900/2, 600/2, "GAME OVER", Color.WHITE, 75);		
-		theEnd.setFont("WaterFont.ttf");
+		
+		
 		EZ.setBackgroundColor(Color.BLACK);
-		theme.stop();
+		
 			
 	}
 	
